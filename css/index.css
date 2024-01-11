@@ -1,0 +1,279 @@
+:root {
+  --color-transparent: rgba(0, 0, 0, 0);
+  --color-black: #000000;
+  --color-black-200: rgba(0, 0, 0, 0.2);
+  --color-black-750: rgba(0, 0, 0, 0.75);
+  --color-black-800: rgba(0, 0, 0, 0.8);
+  --color-white: #ffffff;
+  --color-white-200: rgba(255, 255, 255, 0.2);
+  --color-white-500: rgba(255, 255, 255, 0.5);
+  --color-off-white: #f2efe6;
+  --color-terracotta: #c38133;
+  --color-blue: #3c4cc7;
+  --primary: var(--color-white);
+  --secondary: var(--color-off-white);
+  --tertiary: var(--color-off-white);
+  --quaternary: var(--color-white-200);
+  --font-right-block: "Tenor Sans", "Pt Serif", sans-serif;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-size: 16px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-feature-settings: "kern" 1, "kern";
+  font-kerning: normal;
+}
+
+#container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-terracotta);
+}
+
+#container::-webkit-scrollbar {
+  height: 0.5em;
+}
+
+.block {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+#menu-button {
+  position: fixed;
+  bottom: 40px;
+  right: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2;
+  color: var(--color-terracotta);
+  background-color: var(--color-terracotta);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  transform: translateX(50%);
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out,
+    background-color 0.3s ease-in-out;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+#menu-button {
+  position: fixed;
+  bottom: 40px;
+  right: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  transform: translateX(50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-toggle:checked + #menu-button {
+  color: var(--color-terracotta);
+  background-color: var(--color-blue);
+}
+
+#menu-toggle + #menu-button::before {
+  content: "\2022";
+  color: var(--color-transparent);
+  font-size: 32px;
+  position: absolute;
+  transition: color 0.3s ease-in-out;
+}
+
+#menu-toggle:checked + #menu-button::before {
+  color: var(--color-blue);
+}
+
+#navigation-menu {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -100%;
+  background-color: var(--color-black-800);
+  color: var(--primary);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: bottom 0.3s ease-in-out, width 0.3s ease-in-out;
+  width: 100%;
+  margin: 0 auto;
+  height: 30vh;
+}
+
+#navigation-menu a {
+  color: var(--primary);
+  text-decoration: none;
+  padding: 8px 12px;
+  background-color: var(--color-blue);
+  border-radius: 5px;
+}
+
+#navigation-menu a:hover {
+  border-bottom: 2px solid var(--color-terracotta);
+  color: var(--color-terracotta);
+  background-color: var(--primary);
+}
+
+#menu-toggle:checked + #navigation-menu {
+  bottom: 0;
+}
+
+#navigation-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+#navigation-menu li {
+  margin-right: 15px;
+}
+
+#navigation-menu a:hover {
+  border-bottom: 2px solid var(--primary);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 5px;
+  height: 20px;
+  font-size: 10px;
+}
+
+#right-block {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  width: 50%;
+  background-color: var(--secondary);
+  font-family: var(--font-right-block);
+  height: 100%;
+  background-attachment: fixed;
+}
+
+#right-block .block {
+  text-transform: uppercase;
+}
+
+#right-block .block h1 {
+  margin: 0 auto;
+  text-align: left;
+  max-width: 400px;
+  margin-top: 250px;
+  margin-left: 10px;
+}
+
+#right-block blockquote p {
+  text-align: justify;
+  max-width: 400px;
+  float: right;
+  margin-top: 10px;
+}
+
+#right-block img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 44%;
+  margin-top: 150px;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
+#left-block {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 20px;
+  padding: 20px;
+  width: 50%;
+  background-color: var(--primary);
+  right: 10px;
+  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#about {
+  margin-left: 0;
+  max-width: 400px;
+}
+
+#start {
+  max-width: 400px;
+  margin-left: auto;
+}
+
+#hobby {
+  margin-left: 0;
+  max-width: 400px;
+}
+
+#skills {
+  max-width: 400px;
+  margin-left: auto;
+}
+
+#contacts {
+  margin-left: 0;
+  max-width: 400px;
+}
+
+#left-block #contacts {
+  margin-bottom: 20px;
+}
+
+.contact-icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+#contacts p {
+  margin-bottom: 10px;
+}
